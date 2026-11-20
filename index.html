@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BioSphere | Explore the World of Life</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🧬 BioSphere</div>
+        <button id="theme-toggle">☀️ Light Mode</button>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#body-explorer">Human Body</a></li>
+            <li><a href="#notes">Study Notes</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+
+        <h1>Explore the World of Life</h1>
+
+        <p>
+            Discover the wonders of Biology.
+            Explore cells, organisms, human anatomy,
+            genetics and the incredible diversity of life.
+        </p>
+
+        <button onclick="document.getElementById('explore').scrollIntoView({behavior:'smooth'})">
+         →
+        </button>
+
+    </section>
+
+    <section class="section" id="explore">
+
+        <h2>Explore Biology</h2>
+
+        <p class="section-description">
+            Discover the fascinating branches of life sciences.
+        </p>
+<div class="search-wrapper">
+    <input type="text" id="topic-search"
+    placeholder="🔍 Search Biology topics..." class="search-box">
+
+    <button id="clear-search" onclick="clearSearch()">✕</button>
+</div>
+
+<p id="no-results" style="display:none; text-align:center;">
+    No Biology topics found. Try another search!
+</p>
+        <div class="cards">
+
+            <div class="card" onclick="openTopic('cell')">
+                <div class="icon">🔬</div>
+                <h3>Cell Biology</h3>
+                <p>Discover the structure and functions of the basic unit of life.</p>
+            </div>
+
+            <div class="card" onclick="openTopic('human')">
+                <div class="icon">❤️</div>
+                <h3>Human Anatomy</h3>
+                <p>Explore the organs and systems of the human body.</p>
+            </div>
+
+            <div class="card" onclick="openTopic('animal')">
+                <div class="icon">🐾</div>
+                <h3>Animal Kingdom</h3>
+                <p>Discover the incredible diversity of the animal world.</p>
+            </div>
+
+            <div class="card" onclick="openTopic('plant')">
+                <div class="icon">🌿</div>
+                <h3>Plant Kingdom</h3>
+                <p>Explore plants and their fascinating classification.</p>
+            </div>
+
+            <div class="card" onclick="openTopic('genetics')">
+                <div class="icon">🧬</div>
+                <h3>Genetics</h3>
+                <p>Understand DNA, genes and the science of inheritance.</p>
+            </div>
+
+            <div class="card" onclick="openTopic('ecology')">
+                <div class="icon">🌍</div>
+                <h3>Ecology</h3>
+                <p>Understand ecosystems and the relationship between organisms.</p>
+            </div>
+        </div>
+
+    </section>
+<section class="section" id="quiz">
+
+    <h2>🧠 Biology Challenge</h2>
+
+    <p class="section-description">
+        Test your Biology knowledge with our interactive quiz!
+    </p>
+
+    <div class="quiz-container">
+
+        <div id="quiz-start">
+            <h3>Ready to Test Your Knowledge?</h3>
+
+            <p>Challenge yourself with Biology MCQs.</p>
+
+            <button onclick="startQuiz()" class="quiz-btn">
+                Start Quiz →
+            </button>
+        </div>
+
+        <div id="quiz-box" style="display:none;">
+
+            <h3 id="question"></h3>
+
+            <div id="options"></div>
+
+            <p id="feedback"></p>
+
+            <button id="next-btn" onclick="nextQuestion()"
+            class="quiz-btn" style="display:none;">
+                Next Question →
+            </button>
+
+        </div>
+
+        <div id="quiz-result" style="display:none;">
+
+            <h2>🎉 Quiz Completed!</h2>
+
+            <h3 id="final-score"></h3>
+
+            <button onclick="startQuiz()" class="quiz-btn">
+                Try Again ↻
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="section" id="body-explorer">
+    <h2>🫀 Human Body Explorer</h2>
+    <p>Explore the major organs of the human body.</p>
+
+    <div class="cards">
+        <div class="card" onclick="showOrgan('Heart')">
+            <div class="icon">❤️</div>
+            <h3>Heart</h3>
+            <p>Circulatory System</p>
+        </div>
+
+        <div class="card" onclick="showOrgan('Brain')">
+            <div class="icon">🧠</div>
+            <h3>Brain</h3>
+            <p>Nervous System</p>
+        </div>
+
+        <div class="card" onclick="showOrgan('Lungs')">
+            <div class="icon">LUNGS</div>
+            <h3>Lungs</h3>
+            <p>Respiratory System</p>
+        </div>
+
+        <div class="card" onclick="showOrgan('Kidneys')">
+            <div class="icon">KIDNEYS</div>
+            <h3>Kidneys</h3>
+            <p>Excretory System</p>
+        </div>
+    </div>
+
+    <div id="organ-info" class="quiz-container">
+        Select an organ to explore!
+    </div>
+</section>
+<section class="section" id="notes">
+    <h2>📚 Biology Study Notes</h2>
+    <p class="section-description">Explore important Biology topics.</p>
+
+    <div class="cards">
+        <div class="card" onclick="showNote('cell')">
+            <h3>Cell: The Unit of Life</h3>
+            <p>Cell structure and organelles.</p>
+            <button onclick="bookmarkNote('Cell: The Unit of Life')">⭐ Bookmark</button>
+        </div>
+
+        <div class="card" onclick="showNote('classification')">
+            <h3>Biological Classification</h3>
+            <p>Five kingdom classification.</p>
+            <button onclick="bookmarkNote('Biological Classification')">⭐ Bookmark</button>
+        </div>
+
+        <div class="card" onclick="showNote('plant')">
+            <h3>Plant Kingdom</h3>
+            <p>Algae, bryophytes and pteridophytes.</p>
+            <button onclick="bookmarkNote('Plant Kingdom')">⭐ Bookmark</button>
+        </div>
+
+        <div class="card" onclick="showNote('human')">
+            <h3>Human Physiology</h3>
+            <p>Important human body systems.</p>
+            <button onclick="bookmarkNote('Human Physiology')">⭐ Bookmark</button>
+        </div>
+    </div>
+    <div id="notes-info" class="quiz-container">
+    Select a chapter to read notes.
+</div>
+</section>
+    <section class="section" id="about">
+
+        <h2>About BioSphere</h2>
+
+        <p class="section-description">
+            BioSphere is an educational platform designed to make
+            Biology interesting, interactive and easier to understand.
+        </p>
+
+    </section>
+<div id="topic-modal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeTopic()">✕</button>
+
+        <h2 id="topic-title">Biology Topic</h2>
+
+        <p id="topic-description"></p>
+
+<div id="topic-details">
+    <h3>📖 Detailed Explanation</h3>
+    <div id="topic-content"></div>
+
+    <h3>⭐ Important Concepts</h3>
+    <div id="topic-concepts"></div>
+
+    <h3>📝 Quick Revision</h3>
+    <div id="topic-revision"></div>
+</div>
+
+    </div>
+
+</div>
+    <footer>
+        <p>© 2026 BioSphere | Explore the World of Life</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
